@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derbi Sonucu</title>
+</head>
+<body>
+    <p>Oynanan Para Miktari 7500</p>
+    Galatasaray Gol: <p id="gs"></p>
+    Fenerbahçe Gol: <p id="fb"></p>
+
+    <p id="sonuc"></p>
+    <img id="takimResmi" style="display: none;" width="200">
+
+    <script>
+        function Derbi() {
+            var gs = document.getElementById("gs").innerHTML = Math.floor(Math.random() * 6);
+            var fb = document.getElementById("fb").innerHTML = Math.floor(Math.random() * 6);
+
+            if (gs > fb) {
+                document.getElementById("sonuc").innerHTML = "Galatasaray Büyük Derbiyi Kazandı";
+                document.getElementById("takimResmi").src = "fakiradam.png";
+                document.getElementById("takimResmi").style.display = "block";
+            } else if (fb > gs) {
+                document.getElementById("sonuc").innerHTML = "Fenerbahçe Büyük Derbiyi Kazandı";
+                document.getElementById("takimResmi").src = "dolar.png";
+                document.getElementById("takimResmi").style.display = "block";
+            } else {
+                document.getElementById("sonuc").innerHTML = "Büyük Derbi Berabere Bitti";
+                document.getElementById("takimResmi").src = "fakiradam.png";
+                document.getElementById("takimResmi").style.display = "block";
+            }
+        }
+
+        function reset() {
+            document.getElementById("gs").innerHTML = "";
+            document.getElementById("fb").innerHTML = "";
+            document.getElementById("sonuc").innerHTML = "";
+            document.getElementById("takimResmi").style.display = "none";
+        }
+    </script>
+
+    <button onclick="Derbi()">Oyna</button>
+    <button onclick="reset()">Reset</button>
+</body>
+</html>
